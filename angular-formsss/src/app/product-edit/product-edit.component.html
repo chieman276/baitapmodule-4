@@ -1,0 +1,21 @@
+<form [formGroup]="productForm" autocomplete="off">
+    <div class="container">
+    <div class="mb-3">
+        <label for="bookName">Name</label>
+        <input name="name" formControlName="name" required type="text" class="form-control">
+        <span class="help-text" style="color: red;"
+        *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched) && productForm.get('name')?.errors?.['required']">
+            Name is required
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="price">Price</label>
+        <input name="price" formControlName="price" required type="text" class="form-control">
+        <span class="help-text" style="color: red;"
+        *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched) && productForm.get('price')?.errors?.['required']">
+            price is required
+        </span>
+    </div>
+    <input class="btn btn-primary" (click)="updateProduct()" type="submit" value="Update">
+    </div>
+</form>

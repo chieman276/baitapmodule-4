@@ -1,0 +1,25 @@
+<!-- <form #formProfile="ngForm" (ngSubmit)="onSubmit(formProfile.value)">
+
+
+</form> -->
+
+<form formProfile="ngForm" ngSubmit="onSubmit(formProfile.value)" >
+    <div class="form-group">
+        <label >Email address</label>
+        <input type="text" username="ngModel" ngModel class="form-control" name="username" required minlength="3">
+        <small class="label label-danger" ngIf="username.dirty && username.errors?.required" >
+            Username required
+        </small>
+
+        <small class="label label-danger" ngIf="username.dirty && username.errors?.minlength">
+            username minlength
+        </small>
+
+        <!-- {{ username.errors | json }} -->
+
+    </div>
+
+    <button disabled="!formProfile" type="submit" class="btn btn-primary">Submit</button>
+    <button click="onResetForm(formProfile)" type="button" class="btn btn-danger">Reset</button>
+    
+</form>

@@ -1,0 +1,27 @@
+<pre>{{ productForm.value | json }}</pre>
+<pre>{{ productForm.controls['name']?.errors | json }}</pre>
+
+<form #productForm="ngForm" (ngSubmit)="addProduct(productForm.value)">
+    <div class="form-group">
+        <label for="bookName">Name</label>
+        <input name="name" #name="ngModel" ngModel type="text" required minlength="3" class="form-control">
+        <span class="help-text" *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']">
+            Name is required
+        </span>
+        <span class="help-text" 
+        *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['minlength']">
+        Min length is 3
+    </span>
+        </div>
+        <div class="form-group">
+        <label for="price">price</label>
+        <input name="price" #price="ngModel" ngModel required minlength="3" type="text" class="form-control">
+        <span class="help-text" *ngIf="price.invalid && (price.dirty || price.touched) && price.errors?.['required'] ">
+            price is required
+        </span>
+        <span class="help-text" *ngIf="price.invalid && (price.dirty || price.touched) && price.errors?.['minlength']">
+            Min length is 3
+        </span>
+    </div><br>
+    <input class="btn btn-primary" [disabled]="productForm.invalid" type="submit" value="Add">
+</form>

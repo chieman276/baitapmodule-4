@@ -1,0 +1,70 @@
+<form [formGroup]="productForm" autocomplete="off">
+    <div class="container">
+        <h1>Register</h1>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" required name="email">
+            <span class="help-text" style="color: red;"
+                *ngIf="productForm.get('email')?.invalid && (productForm.get('email')?.dirty || productForm.get('email')?.touched) && productForm.get('email')?.errors?.['required']">
+                email is required
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" required name="password">
+            <span class="help-text" style="color: red;"
+                *ngIf="productForm.get('password')?.invalid && (productForm.get('password')?.dirty || productForm.get('password')?.touched) && productForm.get('password')?.errors?.['required']">
+                password is required
+            </span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Country : </label>
+            <select name="country">
+                <option value="Nga">Nga</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Việt Nam">Việt Nam</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="text" class="form-control" formControlName="age" required name="age">
+            <span class="help-text" style="color: red;"
+                *ngIf="productForm.get('age')?.invalid && (productForm.get('age')?.dirty || productForm.get('age')?.touched) && productForm.get('age')?.errors?.['required']">
+                age is required
+            </span>
+        </div>
+        <div class="mb-3">
+            <label>Gender</label>
+            <input type="radio" name="gender" value="Nam">Nam
+            <input type="radio" name="gender" value="Nữ">Nữ
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="number" class="form-control" formControlName="phone" required name="phone">
+            <span class="help-text" style="color: red;"
+                *ngIf="productForm.get('phone')?.invalid && (productForm.get('phone')?.dirty || productForm.get('phone')?.touched) && productForm.get('phone')?.errors?.['required']">
+                phone is required
+            </span>
+        </div>
+        <!-- 
+
+        <div class="mb-3">
+            <label for="bookName">Name</label>
+            <input name="name" formControlName="name" required type="text" class="form-control">
+            <span class="help-text" style="color: red;"
+                *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched) && productForm.get('name')?.errors?.['required']">
+                Name is required
+            </span>
+        </div>
+        <div class="mb-3">
+            <label for="price">Price</label>
+            <input name="price" formControlName="price" required type="text" class="form-control">
+            <span class="help-text" style="color: red;"
+                *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched) && productForm.get('price')?.errors?.['required']">
+                price is required
+            </span>
+        </div> -->
+        <input class="btn btn-primary" (click)="updateSubmit()" type="submit" value="Update">
+    </div>
+</form>

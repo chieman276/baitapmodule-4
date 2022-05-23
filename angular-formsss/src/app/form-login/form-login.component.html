@@ -1,0 +1,40 @@
+<!-- <form [formGroup]="loginForm" autocomplete="off">
+    <div class="container">
+    <div class="mb-3">
+        <label for="bookName">Name</label>
+        <input name="name" formControlName="name" required type="text" class="form-control">
+        <span class="help-text" style="color: red;"
+        *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty 
+        || productForm.get('name')?.touched) 
+        && productForm.get('name')?.errors?.['required']">
+            Name is required
+        </span>
+    </div>
+          </div>
+</form> -->
+<form [formGroup]="loginForm" autocomplete="off">
+  <div class="container">
+    <h1> Login</h1>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" required name="email">
+      <span class="help-text" style="color: red;"
+        *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.['required']">
+        email is required
+      </span>
+
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" required name="password">
+      <span class="help-text" style="color: red;"
+        *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.['required']">
+        password is required
+      </span>
+    
+    </div>
+    <input class="btn btn-primary" (click)="submitLogin()" type="submit" value="Login">
+
+  </div>
+</form>
